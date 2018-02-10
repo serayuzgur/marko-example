@@ -16,8 +16,7 @@
   "dependencies": {
     "apollo-fetch": "0.7.0",
     "marko": "4.7.5",
-    "marko-starter": "2.0.3",
-    "scrollmonitor": "^1.2.4"
+    "marko-starter": "2.0.3"
   },
   "scripts": {
     "start": "marko-starter server",
@@ -28,10 +27,7 @@
     "prettier": "prettier src/**/*.{js,css,less} *.js --write"
   },
   "eslintConfig": {
-    "extends": [
-      "eslint:recommended",
-      "prettier"
-    ],
+    "extends": ["eslint:recommended", "prettier"],
     "rules": {
       "no-console": "off"
     },
@@ -40,8 +36,6 @@
       "node": true
     }
   },
-  "eslintIgnore": [
-    "*.marko.js"
-  ],
+  "eslintIgnore": ["*.marko.js"],
   "private": true
 }
