@@ -1,0 +1,30 @@
+/**
+ * This is the input box you type in. 
+ * Waits 400ms after your last type and emits a custom event.
+*/
+class {
+  onCreate() {
+    this.state = { keyword: null,timer:null };
+  }
+
+  /**
+   * Works on every input event manages timeouts and creates search event if necessary.
+  */
+  setKeyword(e){
+    clearTimeout(this.state.timer);
+    this.state.keyword = e.target.value;
+    this.state.timer = setTimeout(()=>this.emit("search", e.target.value ),400);
+    
+  }
+}
+style {
+  #search-box {
+    width:100%;
+    height:30px;
+    border:1px gray solid;
+    font-size: 30px;
+    padding:10px;
+    color:#333;
+  }
+}
+<input#search-box type="text" value=state.keyword on-input("setKeyword")/>

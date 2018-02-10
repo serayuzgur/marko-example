@@ -1,0 +1,83 @@
+import fetch from "../data/graph"
+import Queries from "../data/queries"
+/**
+ * This component loads query results with the given keyword.
+ * Renders to a list
+*/
+class {
+  onCreate(){
+    this.state={data:[],time:0,count:0};
+  }
+  
+  /**
+   * Call on every keyword change
+  */
+  onInput(input){
+    if(input.keyword && input.keyword.length>0){
+     fetch({ query:Queries.search,variables:{keyword:input.keyword}}) //all apolloFetch arguments are optional
+      .then(result => {
+        const { data:{search:{products,numFound}}, errors, extensions } = result;
+        // GraphQL errors and extensions are optional. Since this is an example I will not handle them.
+        this.state = {data : products,time:extensions.runTime,count:numFound};
+      }).catch(error => {
+        // Network errors. Just log them.
+        console.err(error);
+      });
+    }
+  }
+}
+style {
+   #count {
+    font-size:12px;
+    display:inline-block;
+  }
+  .productList{
+    display: flex;
+    flex-direction: row;
+    flex-flow: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-content: space-between;
+  }
+  .productListItem {
+    flex:25% 1 1;
+    background:white;
+    height:300px;
+    padding:10px;
+    border:.5px solid lightgray;
+    list-style: none;
+    margin: 15px;
+    cursor:pointer;
+    vertical-align:middle;
+    text-align: center;
+    font-size: 12px;
+  }
+  .productListItem:hover{
+    -webkit-box-shadow: -2px 1px 11px -3px rgba(0,0,0,0.75);
+    -moz-box-shadow: -2px 1px 11px -3px rgba(0,0,0,0.75);
+    box-shadow: -2px 1px 11px -3px rgba(0,0,0,0.75);  }
+  .productImg {
+    max-width:200px;
+    max-height:200px;
+  }
+  .productTitle {
+    padding-top:20px;
+    text-align: center;
+  }
+  .productPrice {
+    font-size:16px;
+    font-weight:bold;
+    padding-top:20px;
+    text-align: center;
+  }
+}
+<p#count>Found ${state.count} items in ${state.time} ms. Showing first 20.</p>
+<div.productList>
+  <for(datum in state.data)>
+    <div.productListItem>
+      <img.productImg src=(((("//cdn01.cimri.com/image/200x200/" + datum.product.title.replace(/[^a-zA-Z]/g, "").split(" ").join("-").toLowerCase()) + "_") + datum.imageIds[0]) + ".jpg")/>
+      <div.productTitle>${`${datum.product.title}`}</div>
+      <div.productPrice>${datum.prices.minPrice} TL - ${datum.prices.maxPrice} TL</div>
+    </div>
+  </for>
+</div>

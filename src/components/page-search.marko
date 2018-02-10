@@ -1,0 +1,27 @@
+/**
+ * This component is the search page itself. It is written as a component not as a route because 
+ * defining js in route files corrupted the css somehow.
+*/
+class {
+  onCreate(){
+    // Initialize with an empty keyword.
+    this.state = { keyword:""};
+  }
+
+  /**
+   * This method will be called on every search event of search-box.
+   * And yes, search is a custom event of search-box.
+  */
+  searched(keyword){
+    this.state.keyword = keyword;
+  }
+}
+
+<section>
+  <h2>Search:</h2>
+  <search-box on-search("searched")/>
+</section>
+<section>
+  <product-list keyword=state.keyword/>      
+</section>
+
