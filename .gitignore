@@ -9,3 +9,4 @@ dist/
 .DS_STORE
 dump.rdb
 .marko-devtools/
+.vscode
