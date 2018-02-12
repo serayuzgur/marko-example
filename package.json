@@ -1,10 +1,10 @@
 {
   "name": "marko-example",
   "version": "1.0.0",
-  "description": "Demo of how to build an app using marko-starter",
+  "description": "An example project with markojs and apoll-fetch.",
   "repository": {
     "type": "git",
-    "url": "https://github.com/marko-js-samples/marko-starter-demo"
+    "url": "https://github.com/serayuzgur/marko-example"
   },
   "license": "MIT",
   "devDependencies": {

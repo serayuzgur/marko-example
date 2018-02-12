@@ -1,4 +1,5 @@
 # Marko Example.
+An example project with markojs and apoll-fetch.
 This repo extends [`marko-starter`](https://github.com/marko-js/marko-starter). 
 Aims to demonstrate a real-life demo.
 
