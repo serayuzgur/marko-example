@@ -9,40 +9,14 @@ query search(
   ) {
     numFound
     products {
-      id
       product {
-        id
-        model
         title
-        url
-        rank
-        categoryId
-        brandId
-        productType
-        mainProductId
-        hasArticle
       }
       prices {
         minPrice
         maxPrice
       }
-      merchantCount
       imageIds
-      rating {
-        rate
-        count
-      }
-      metaData {
-        title
-        description
-        fullCategory
-      }
-      topOffers {
-        sid
-        merchantUrl
-        merchantId
-        price
-      }
     }
   }
 }
