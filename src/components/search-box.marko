@@ -1,7 +1,8 @@
-/**
- * This is the input box you type in. 
- * Waits 400ms after your last type and emits a custom event.
-*/
+<!--
+*
+* This is the input box you type in.
+* Waits 400ms after your last type and emits a custom event.
+-->
 class {
   onCreate() {
     this.state = { keyword: null,timer:null };
@@ -27,4 +28,4 @@ style {
     color:#333;
   }
 }
-<input#search-box type="text" value=state.keyword on-input("setKeyword")/>
+input#search-box type="text" value=state.keyword on-input("setKeyword")

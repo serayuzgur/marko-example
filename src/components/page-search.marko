@@ -1,7 +1,8 @@
-/**
- * This component is the search page itself. It is written as a component not as a route because 
- * defining js in route files corrupted the css somehow.
-*/
+<!--
+*
+* This component is the search page itself. It is written as a component not as a route because
+* defining js in route files corrupted the css somehow.
+-->
 class {
   onCreate(){
     // Initialize with an empty keyword.
@@ -16,12 +17,8 @@ class {
     this.state.keyword = keyword;
   }
 }
-
-<section>
-  <h2>Search:</h2>
-  <search-box on-search("searched")/>
-</section>
-<section>
-  <product-list keyword=state.keyword/>      
-</section>
-
+section
+  h2 -- Search:
+  search-box on-search("searched")
+section
+  product-list keyword=state.keyword

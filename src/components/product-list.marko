@@ -1,9 +1,10 @@
 import fetch from "../data/graph"
 import Queries from "../data/queries"
-/**
- * This component loads query results with the given keyword.
- * Renders to a list
-*/
+<!--
+*
+* This component loads query results with the given keyword.
+* Renders to a list
+-->
 class {
   onCreate(){
     this.state={data:[],time:0,count:0};
@@ -71,13 +72,10 @@ style {
     text-align: center;
   }
 }
-<p#count>Found ${state.count} items in ${state.time} ms. Showing first 20.</p>
-<div.productList>
-  <for(datum in state.data)>
-    <div.productListItem>
-      <img.productImg src=(((("//cdn01.cimri.com/image/200x200/" + datum.product.title.replace(/[^a-zA-Z]/g, "").split(" ").join("-").toLowerCase()) + "_") + datum.imageIds[0]) + ".jpg")/>
-      <div.productTitle>${`${datum.product.title}`}</div>
-      <div.productPrice>${datum.prices.minPrice} TL - ${datum.prices.maxPrice} TL</div>
-    </div>
-  </for>
-</div>
+p#count -- Found ${state.count} items in ${state.time} ms. Showing first 20.
+div.productList
+  for(datum in state.data)
+    div.productListItem
+      img.productImg src=(((("//cdn01.cimri.com/image/200x200/" + datum.product.title.replace(/[^a-zA-Z]/g, "").split(" ").join("-").toLowerCase()) + "_") + datum.imageIds[0]) + ".jpg")
+      div.productTitle -- ${`${datum.product.title}`}
+      div.productPrice -- ${datum.prices.minPrice} TL - ${datum.prices.maxPrice} TL
